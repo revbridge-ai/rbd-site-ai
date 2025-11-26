@@ -1,0 +1,55 @@
+"use client";
+
+import { Container } from "@/components/ui/Container";
+import { Badge } from "@/components/ui/Badge";
+import { HeroVideoDialog } from "@/components/ui/HeroVideoDialog";
+import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
+import { Play } from "lucide-react";
+
+export function VideoSection() {
+  return (
+    <BackgroundGradientAnimation
+      gradientBackgroundStart="rgb(30, 0, 0)"
+      gradientBackgroundEnd="rgb(60, 0, 20)"
+      firstColor="232, 17, 17"
+      secondColor="220, 38, 38"
+      thirdColor="255, 100, 100"
+      fourthColor="180, 0, 0"
+      fifthColor="255, 150, 100"
+      pointerColor="232, 17, 17"
+      size="100%"
+      blendingValue="hard-light"
+      interactive={true}
+      containerClassName="py-24 md:py-32"
+    >
+      <Container>
+        <div className="text-center mb-12">
+          <Badge
+            variant="outline"
+            className="mb-4 border-white/30 text-white bg-white/10"
+          >
+            <Play size={14} className="mr-1" />
+            See it in action
+          </Badge>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Create your first campaign in 5 minutes
+          </h2>
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+            See how easy it is to create a pay-per-performance CRM campaign
+            with AI-powered automated journeys.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <HeroVideoDialog
+            animationStyle="from-center"
+            videoSrc="/videos/demo-campaign.mov"
+            thumbnailSrc="/images/video-thumb.png"
+            thumbnailAlt="Demo: How to create a RevBridge campaign"
+            isLocalVideo
+          />
+        </div>
+      </Container>
+    </BackgroundGradientAnimation>
+  );
+}

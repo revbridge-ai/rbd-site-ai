@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* RevBridge Brand Colors - RED */
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #fee2e2;
+  --color-primary-200: #fecaca;
+  --color-primary-300: #fca5a5;
+  --color-primary-400: #f87171;
+  --color-primary-500: #e81111;
+  --color-primary-600: #dc2626;
+  --color-primary-700: #b91c1c;
+  --color-primary-800: #991b1b;
+  --color-primary-900: #7f1d1d;
+
+  /* Dark colors */
+  --color-dark: #1a1a1a;
+  --color-dark-light: #2d2d2d;
+
+  /* Gray scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Background and foreground */
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+
+  /* Tile hover color */
+  --tile: rgba(232, 17, 17, 0.15);
+
+  /* Font */
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles */
+body {
+  background: #f9fafb;
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, #e81111 0%, #dc2626 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #e81111 0%, #dc2626 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Background Gradient Animation Keyframes */
+@keyframes first {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  33% {
+    transform: rotate(120deg) translateX(100px);
+  }
+  66% {
+    transform: rotate(240deg) translateX(-100px);
+  }
+  100% {
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+@keyframes second {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  33% {
+    transform: rotate(-120deg) translateY(100px);
+  }
+  66% {
+    transform: rotate(-240deg) translateY(-100px);
+  }
+  100% {
+    transform: rotate(-360deg) translateY(0);
+  }
+}
+
+@keyframes third {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  33% {
+    transform: rotate(90deg) translate(50px, 50px);
+  }
+  66% {
+    transform: rotate(180deg) translate(-50px, -50px);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+
+@keyframes fourth {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    transform: rotate(-90deg) scale(1.1);
+  }
+  66% {
+    transform: rotate(-180deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(-360deg) scale(1);
+  }
+}
+
+@keyframes fifth {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  50% {
+    transform: rotate(180deg) translateX(100px);
+  }
+  100% {
+    transform: rotate(360deg) translateX(0);
+  }
+}
+
+.animate-first {
+  animation: first 20s ease-in-out infinite;
+}
+
+.animate-second {
+  animation: second 15s ease-in-out infinite;
+}
+
+.animate-third {
+  animation: third 25s ease-in-out infinite;
+}
+
+.animate-fourth {
+  animation: fourth 18s ease-in-out infinite;
+}
+
+.animate-fifth {
+  animation: fifth 22s ease-in-out infinite;
 }
