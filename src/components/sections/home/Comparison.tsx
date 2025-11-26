@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
 import { Check, X, Minus } from "lucide-react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 
 const features = [
   {
@@ -85,7 +85,7 @@ export function Comparison() {
               <div className="p-6 text-center border-x border-gray-200 bg-primary-50">
                 <div className="flex items-center justify-center gap-2">
                   <Image
-                    src="/logo.svg"
+                    src={getAssetPath("/logo.svg")}
                     alt="RevBridge"
                     width={32}
                     height={32}

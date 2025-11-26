@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { HeroVideoDialog } from "@/components/ui/HeroVideoDialog";
 import { BackgroundGradientAnimation } from "@/components/ui/BackgroundGradientAnimation";
+import { getAssetPath } from "@/lib/utils";
 import { Play } from "lucide-react";
 
 export function VideoSection() {
@@ -43,8 +44,8 @@ export function VideoSection() {
         <div className="max-w-4xl mx-auto">
           <HeroVideoDialog
             animationStyle="from-center"
-            videoSrc="/videos/demo-campaign.mov"
-            thumbnailSrc="/images/video-thumb.png"
+            videoSrc={getAssetPath("/videos/demo-campaign.mov")}
+            thumbnailSrc={getAssetPath("/images/video-thumb.png")}
             thumbnailAlt="Demo: How to create a RevBridge campaign"
             isLocalVideo
           />

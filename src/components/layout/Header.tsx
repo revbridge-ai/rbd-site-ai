@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Sheet, SheetContent, SheetFooter } from "@/components/ui/Sheet";
 import { Button } from "@/components/ui/Button";
 import { MenuToggle } from "@/components/ui/MenuToggle";
+import { getAssetPath } from "@/lib/utils";
 
 const links = [
   { label: "Platform", href: "/plataforma" },
@@ -23,7 +24,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.svg"
+            src={getAssetPath("/logo.svg")}
             alt="RevBridge"
             width={36}
             height={36}
@@ -74,7 +75,7 @@ export function Header() {
             {/* Logo in sheet */}
             <div className="flex items-center gap-2 px-4 pt-4 pb-6 border-b border-gray-100">
               <Image
-                src="/logo.svg"
+                src={getAssetPath("/logo.svg")}
                 alt="RevBridge"
                 width={32}
                 height={32}

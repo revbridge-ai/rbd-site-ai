@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { navigation } from "@/data/navigation";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 const socialIcons = {
   linkedin: Linkedin,
@@ -19,7 +20,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-1">
               <Image
-                src="/logo.svg"
+                src={getAssetPath("/logo.svg")}
                 alt="RevBridge"
                 width={40}
                 height={40}
