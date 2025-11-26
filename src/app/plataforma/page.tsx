@@ -14,6 +14,7 @@ import {
   Palette,
   Radio,
   BarChart3,
+  ArrowRight,
   Check,
   Play,
 } from "lucide-react";
