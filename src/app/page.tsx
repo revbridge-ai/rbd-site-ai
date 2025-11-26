@@ -5,7 +5,7 @@ import { CreativeGenerator } from "@/components/sections/home/CreativeGenerator"
 import { ValueProps } from "@/components/sections/home/ValueProps";
 import { Comparison } from "@/components/sections/home/Comparison";
 import { Metrics } from "@/components/sections/home/Metrics";
-import { Testimonials } from "@/components/sections/home/Testimonials";
+import { GooglePartnership } from "@/components/sections/home/GooglePartnership";
 import { FinalCTA } from "@/components/sections/home/FinalCTA";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <ValueProps />
       <Comparison />
       <Metrics />
-      <Testimonials />
+      <GooglePartnership />
       <FinalCTA />
     </>
   );

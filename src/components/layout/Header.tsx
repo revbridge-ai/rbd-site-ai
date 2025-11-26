@@ -55,10 +55,7 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <div className="ml-4 flex items-center gap-2">
-            <Button variant="outline" size="sm">
-              Log In
-            </Button>
+          <div className="ml-4">
             <Button size="sm" onClick={openWaitlist}>
               Join Waitlist
             </Button>
@@ -115,9 +112,6 @@ export function Header() {
             </div>
 
             <SheetFooter>
-              <Button variant="outline" className="w-full">
-                Log In
-              </Button>
               <Button
                 className="w-full"
                 onClick={() => {
