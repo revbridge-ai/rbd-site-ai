@@ -11,6 +11,7 @@ import { useWaitlist } from "@/components/ui/WaitlistModal";
 import {
   Check,
   X,
+  ArrowRight,
   Calculator,
   HelpCircle,
   ChevronDown,

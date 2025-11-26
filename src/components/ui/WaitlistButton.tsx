@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 interface WaitlistButtonProps {
   children?: React.ReactNode;
-  variant?: "default" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
   showArrow?: boolean;
@@ -15,7 +15,7 @@ interface WaitlistButtonProps {
 
 export function WaitlistButton({
   children = "Join the Waitlist",
-  variant = "default",
+  variant = "primary",
   size = "lg",
   className,
   showArrow = true,
