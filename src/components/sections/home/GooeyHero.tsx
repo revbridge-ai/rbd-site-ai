@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { GooeyText } from "@/components/ui/GooeyText";
 import { Tiles } from "@/components/ui/Tiles";
 import { Button } from "@/components/ui/Button";
+import { useWaitlist } from "@/components/ui/WaitlistModal";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -17,6 +18,8 @@ const morphingWords = [
 ];
 
 export function GooeyHero() {
+  const { openWaitlist } = useWaitlist();
+
   return (
     <section className="relative overflow-hidden bg-gray-50 py-12 md:py-16 lg:py-20">
       {/* Tiles Background */}
@@ -74,8 +77,8 @@ export function GooeyHero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg">
-              Get $300 free to start
+            <Button size="lg" onClick={openWaitlist}>
+              Join the Waitlist
               <ArrowRight size={18} className="ml-2" />
             </Button>
             <Button
@@ -102,7 +105,7 @@ export function GooeyHero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-sm text-gray-500 mt-6"
           >
-            No credit card required • 5-minute setup • Cancel anytime
+            Launching 2025 • $500 free credits for early adopters
           </motion.p>
         </div>
       </Container>

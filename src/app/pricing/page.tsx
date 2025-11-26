@@ -6,10 +6,11 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { WaitlistButton } from "@/components/ui/WaitlistButton";
+import { useWaitlist } from "@/components/ui/WaitlistModal";
 import {
   Check,
   X,
-  ArrowRight,
   Calculator,
   HelpCircle,
   ChevronDown,
@@ -383,24 +384,11 @@ export default function PricingPage() {
               Start risk-free
             </h2>
             <p className="text-lg text-white/80 mb-8">
-              No credit card, no commitment. Your first campaign can
-              be running in 5 minutes.
+              Be the first to experience the future of CRM.
+              Join our waitlist for exclusive early access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-primary-600 hover:bg-gray-100"
-              >
-                Get $300 free to start
-                <ArrowRight size={18} className="ml-2" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white/10"
-              >
-                Talk to Sales
-              </Button>
+              <WaitlistButton className="bg-white text-primary-600 hover:bg-gray-100" />
             </div>
           </div>
         </Container>

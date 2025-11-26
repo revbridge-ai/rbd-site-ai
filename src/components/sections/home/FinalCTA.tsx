@@ -3,10 +3,13 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { useWaitlist } from "@/components/ui/WaitlistModal";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function FinalCTA() {
+  const { openWaitlist } = useWaitlist();
+
   return (
     <Section background="gradient" className="relative overflow-hidden">
       {/* Background decoration */}
@@ -25,7 +28,7 @@ export function FinalCTA() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/90 text-sm font-medium mb-6">
             <Sparkles size={16} />
-            $300 free credits, no credit card required
+            Early access opening soon
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -33,29 +36,31 @@ export function FinalCTA() {
           </h2>
 
           <p className="text-lg md:text-xl text-white/80 mb-8">
-            Your first campaign can be running in 5 minutes.
-            No contracts, no setup fees, no hassle.
+            Be the first to experience the future of CRM.
+            Join our waitlist for exclusive early access.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               className="bg-white text-primary-600 hover:bg-gray-100 shadow-xl"
+              onClick={openWaitlist}
             >
-              Get $300 free to start
+              Join the Waitlist
               <ArrowRight size={18} className="ml-2" />
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white/10"
+              onClick={openWaitlist}
             >
-              Talk to Sales
+              Learn More
             </Button>
           </div>
 
           <p className="text-white/60 text-sm mt-6">
-            Join over 500 companies that have already transformed their CRM
+            $500 in free credits for early adopters
           </p>
         </motion.div>
       </Container>

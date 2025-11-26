@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { WaitlistProvider } from "@/components/ui/WaitlistModal";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,9 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-gray-50">
       <body className={`${inter.variable} antialiased bg-gray-50 min-h-screen`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <WaitlistProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </WaitlistProvider>
       </body>
     </html>
   );

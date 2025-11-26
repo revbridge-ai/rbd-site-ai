@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Sheet, SheetContent, SheetFooter } from "@/components/ui/Sheet";
 import { Button } from "@/components/ui/Button";
 import { MenuToggle } from "@/components/ui/MenuToggle";
+import { useWaitlist } from "@/components/ui/WaitlistModal";
 import { getAssetPath } from "@/lib/utils";
 
 const links = [
@@ -25,6 +26,7 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
+  const { openWaitlist } = useWaitlist();
 
   return (
     <header className="bg-white/95 supports-[backdrop-filter]:bg-white/80 sticky top-0 z-50 w-full border-b border-gray-100 backdrop-blur-lg">
@@ -57,7 +59,9 @@ export function Header() {
             <Button variant="outline" size="sm">
               Log In
             </Button>
-            <Button size="sm">Get $300 free to start</Button>
+            <Button size="sm" onClick={openWaitlist}>
+              Join Waitlist
+            </Button>
           </div>
         </div>
 
@@ -114,7 +118,15 @@ export function Header() {
               <Button variant="outline" className="w-full">
                 Log In
               </Button>
-              <Button className="w-full">Get $300 free to start</Button>
+              <Button
+                className="w-full"
+                onClick={() => {
+                  setOpen(false);
+                  openWaitlist();
+                }}
+              >
+                Join Waitlist
+              </Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>

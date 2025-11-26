@@ -1,10 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { Calendar, Clock, ArrowLeft, ArrowRight, Share2, Linkedin, Twitter } from "lucide-react";
+import { WaitlistButton } from "@/components/ui/WaitlistButton";
+import { Calendar, Clock, ArrowLeft, Share2, Linkedin, Twitter } from "lucide-react";
 
 // This would typically come from a CMS or MDX files
 const posts: Record<string, {
@@ -407,16 +409,10 @@ export default async function BlogPostPage({
               Ready to Try It?
             </h2>
             <p className="text-white/80 mb-6">
-              Create your free account and see how pay-per-performance CRM
-              can transform your results.
+              Be the first to experience the future of CRM.
+              Join our waitlist for exclusive early access.
             </p>
-            <Button
-              size="lg"
-              className="bg-white text-primary-600 hover:bg-gray-100"
-            >
-              Get $300 free to start
-              <ArrowRight size={18} className="ml-2" />
-            </Button>
+            <WaitlistButton className="bg-white text-primary-600 hover:bg-gray-100" />
           </div>
         </Container>
       </Section>
