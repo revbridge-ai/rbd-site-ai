@@ -20,6 +20,9 @@ const budgetOptions = [
   { value: "not-sure", label: "Not sure yet" },
 ];
 
+const WAITLIST_API_URL =
+  "https://us-central1-chromatic-timer-461913-q9.cloudfunctions.net/waitlist-signup";
+
 export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
   const [formData, setFormData] = React.useState({
     name: "",
@@ -30,29 +33,45 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
   });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    // Simulate API call - replace with actual API endpoint
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        budget: "",
-        consent: false,
+    try {
+      const response = await fetch(WAITLIST_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-      onOpenChange(false);
-    }, 3000);
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to submit");
+      }
+
+      setIsSubmitted(true);
+
+      // Reset form after 3 seconds and close modal
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          budget: "",
+          consent: false,
+        });
+        onOpenChange(false);
+      }, 3000);
+    } catch (err) {
+      console.error("Waitlist submission error:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -261,6 +280,12 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
                         product updates and early access opportunities.
                       </label>
                     </div>
+
+                    {error && (
+                      <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
+                        {error}
+                      </div>
+                    )}
 
                     <Button
                       type="submit"
