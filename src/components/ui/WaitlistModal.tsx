@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { X, Sparkles, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { X, Loader2 } from "lucide-react";
+import { cn, getAssetPath } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./Button";
 
@@ -106,8 +107,14 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
 
               {/* Header */}
               <div className="bg-gradient-to-r from-primary-500 to-primary-600 px-6 py-8 text-center text-white">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 mb-4">
-                  <Sparkles className="w-6 h-6" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-white/20 mb-4">
+                  <Image
+                    src={getAssetPath("/logo.svg")}
+                    alt="RevBridge"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8 brightness-0 invert"
+                  />
                 </div>
                 <h2 className="text-2xl font-bold mb-2">
                   Be the First to Use RevBridge in 2026
