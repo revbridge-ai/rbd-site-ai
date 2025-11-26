@@ -51,7 +51,7 @@ export function Metrics() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12"
         >
           {metrics.map((metric) => (
             <motion.div
@@ -59,11 +59,11 @@ export function Metrics() {
               variants={item}
               className="text-center"
             >
-              <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient mb-2">
                 {metric.value}
               </p>
-              <p className="text-white font-semibold mb-1">{metric.label}</p>
-              <p className="text-gray-400 text-sm">{metric.description}</p>
+              <p className="text-white font-semibold text-sm sm:text-base mb-1">{metric.label}</p>
+              <p className="text-gray-400 text-xs sm:text-sm">{metric.description}</p>
             </motion.div>
           ))}
         </motion.div>

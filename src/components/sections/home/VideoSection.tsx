@@ -24,7 +24,7 @@ export function VideoSection() {
       containerClassName="py-24 md:py-32"
     >
       <Container>
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <Badge
             variant="outline"
             className="mb-4 border-white/30 text-white bg-white/10"
@@ -32,10 +32,10 @@ export function VideoSection() {
             <Play size={14} className="mr-1" />
             See it in action
           </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Create your first campaign in 5 minutes
           </h2>
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-white/70 max-w-2xl mx-auto px-4">
             See how easy it is to create a pay-per-performance CRM campaign
             with AI-powered automated journeys.
           </p>

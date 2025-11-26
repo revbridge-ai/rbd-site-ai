@@ -66,11 +66,11 @@ export function FeaturesCarousel({
   };
 
   return (
-    <div className="grid lg:grid-cols-2 lg:gap-16 gap-8 items-center">
+    <div className="grid lg:grid-cols-2 lg:gap-16 gap-6 items-center">
       {/* Left Side - Features with Progress Lines */}
       <div
         ref={containerRef}
-        className="lg:space-y-4 md:space-x-6 lg:space-x-0 overflow-x-auto overflow-hidden no-scrollbar lg:overflow-visible flex lg:flex lg:flex-col flex-row order-2 lg:order-1 pb-4 scroll-smooth"
+        className="lg:space-y-4 space-x-4 lg:space-x-0 overflow-x-auto overflow-hidden no-scrollbar lg:overflow-visible flex lg:flex lg:flex-col flex-row order-2 lg:order-1 pb-4 scroll-smooth -mx-4 px-4 lg:mx-0 lg:px-0"
       >
         {features.map((feature, index) => {
           const Icon = feature.icon;
@@ -89,7 +89,7 @@ export function FeaturesCarousel({
               {/* Feature Content */}
               <div
                 className={`
-                flex lg:flex-row flex-col items-start gap-4 p-4 min-w-[280px] md:min-w-[320px] lg:min-w-0 lg:max-w-2xl transition-all duration-300 rounded-2xl
+                flex lg:flex-row flex-col items-start gap-3 lg:gap-4 p-3 lg:p-4 min-w-[240px] sm:min-w-[280px] lg:min-w-0 lg:max-w-2xl transition-all duration-300 rounded-xl lg:rounded-2xl
                 ${
                   isActive
                     ? "bg-white shadow-xl border-2 border-primary-500"
@@ -124,7 +124,7 @@ export function FeaturesCarousel({
                 <div className="flex-1">
                   <h3
                     className={`
-                    text-lg font-semibold mb-2 transition-colors duration-300
+                    text-base lg:text-lg font-semibold mb-1 lg:mb-2 transition-colors duration-300
                     ${isActive ? "text-dark" : "text-gray-700"}
                   `}
                   >
@@ -132,7 +132,7 @@ export function FeaturesCarousel({
                   </h3>
                   <p
                     className={`
-                    transition-colors duration-300 text-sm leading-relaxed
+                    transition-colors duration-300 text-xs lg:text-sm leading-relaxed
                     ${isActive ? "text-gray-600" : "text-gray-500"}
                   `}
                   >

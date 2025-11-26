@@ -76,7 +76,8 @@ export function Comparison() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+          {/* Desktop Table */}
+          <div className="hidden md:block bg-white rounded-3xl shadow-xl overflow-hidden">
             {/* Header */}
             <div className="grid grid-cols-3 bg-gray-50 border-b border-gray-200">
               <div className="p-6">
@@ -126,6 +127,45 @@ export function Comparison() {
                       <Minus size={18} className="text-gray-400" />
                     )}
                     <span className="text-gray-500">{feature.traditional}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Cards */}
+          <div className="md:hidden space-y-4">
+            {features.map((feature) => (
+              <div
+                key={feature.name}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              >
+                <div className="bg-gray-50 px-4 py-3 border-b border-gray-100">
+                  <p className="font-semibold text-dark">{feature.name}</p>
+                </div>
+                <div className="grid grid-cols-2 divide-x divide-gray-100">
+                  <div className="p-4 bg-primary-50/30">
+                    <div className="flex items-center gap-1 mb-1">
+                      <Image
+                        src={getAssetPath("/logo.svg")}
+                        alt="RevBridge"
+                        width={16}
+                        height={16}
+                        className="w-4 h-4"
+                      />
+                      <span className="text-xs font-semibold text-primary-600">RevBridge</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Check size={14} className="text-primary-500 flex-shrink-0" />
+                      <span className="text-sm text-dark font-medium">{feature.revbridge}</span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className="text-xs font-semibold text-gray-500 mb-1">Traditional</p>
+                    <div className="flex items-center gap-1">
+                      <X size={14} className="text-gray-400 flex-shrink-0" />
+                      <span className="text-sm text-gray-500">{feature.traditional}</span>
+                    </div>
                   </div>
                 </div>
               </div>

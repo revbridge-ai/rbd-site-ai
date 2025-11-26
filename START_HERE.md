@@ -1,140 +1,176 @@
-# RevBridge Site - Resumo da Sessão
+# START HERE - RevBridge Site AI
 
-## O que foi criado
+## Quick Start
 
-Site institucional da RevBridge (novo produto CRM pay-per-performance) estilo Braze.com.
+```bash
+# Install dependencies
+npm install
 
-### Stack
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS v4
-- **Animações**: Framer Motion
-- **Linguagem**: TypeScript
-- **Ícones**: Lucide React
+# Run development server
+npm run dev
 
-### Identidade Visual
-- **Cor primária**: Verde `#0ad848`
-- **Cor secundária**: `#00bc58`
-- **Fonte**: Inter
-- **Estilo**: Minimalista SaaS, inspirado em Braze.com
+# Build for production
+npm run build
+```
 
----
+## Project Overview
 
-## Estrutura do Projeto
+This is the **RevBridge** marketing website - a pay-per-performance CRM platform.
 
+### Key Information
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **Primary Color:** #e81111 (red)
+- **Language:** English
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+
+### Project Structure
 ```
 src/
 ├── app/
-│   ├── layout.tsx          ✅ Layout raiz com Header/Footer
-│   ├── page.tsx            ✅ Homepage
-│   ├── globals.css         ✅ Tema Tailwind customizado
-│   ├── plataforma/
-│   │   └── page.tsx        ✅ Página de features
-│   ├── pricing/
-│   │   └── page.tsx        ✅ Página de preços + calculadora
-│   ├── sobre/
-│   │   └── page.tsx        ✅ Sobre a empresa
-│   └── blog/
-│       ├── page.tsx        ✅ Lista de posts
-│       └── [slug]/
-│           └── page.tsx    ✅ Post individual
+│   ├── page.tsx          # Home page
+│   ├── layout.tsx        # Root layout (Header/Footer)
+│   ├── globals.css       # Tailwind theme
+│   ├── icon.svg          # Favicon (RevBridge logo)
+│   ├── plataforma/       # Platform features page
+│   ├── pricing/          # Pricing + ROI calculator
+│   ├── sobre/            # About page
+│   └── blog/             # Blog listing + individual posts
 ├── components/
-│   ├── ui/                 ✅ Componentes base
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── Container.tsx
-│   │   ├── Section.tsx
-│   │   ├── Badge.tsx
-│   │   └── Input.tsx
-│   ├── layout/             ✅ Header e Footer
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   └── sections/home/      ✅ Seções da homepage
-│       ├── Hero.tsx
-│       ├── AssetSimulator.tsx
-│       ├── HowItWorks.tsx
-│       ├── ValueProps.tsx
-│       ├── Comparison.tsx
-│       ├── Metrics.tsx
-│       ├── Testimonials.tsx
-│       └── FinalCTA.tsx
-├── lib/
-│   └── utils.ts            ✅ Função cn()
-└── data/
-    └── navigation.ts       ✅ Links de navegação
+│   ├── layout/           # Header, Footer
+│   ├── sections/home/    # Home page sections
+│   │   ├── GooeyHero.tsx
+│   │   ├── VideoSection.tsx
+│   │   ├── HowItWorks.tsx
+│   │   ├── CreativeGenerator.tsx
+│   │   ├── ValueProps.tsx
+│   │   ├── Comparison.tsx
+│   │   ├── Metrics.tsx
+│   │   ├── Testimonials.tsx
+│   │   └── FinalCTA.tsx
+│   └── ui/               # Reusable UI components
+│       ├── Button.tsx
+│       ├── Card.tsx
+│       ├── Badge.tsx
+│       ├── Container.tsx
+│       ├── Section.tsx
+│       ├── FeaturesCarousel.tsx
+│       ├── HeroVideoDialog.tsx
+│       ├── BackgroundGradientAnimation.tsx
+│       └── ...
+├── data/
+│   └── navigation.ts     # Navigation links
+└── lib/
+    └── utils.ts          # Helpers (cn, getAssetPath)
+```
+
+### Public Assets
+```
+public/
+├── logo.svg              # RevBridge logo
+├── images/
+│   ├── step-1.png to step-5.png  # HowItWorks steps
+│   └── video-thumb.png   # Video thumbnail
+└── videos/
+    └── demo-campaign.mov # Demo video
 ```
 
 ---
 
-## Homepage - Seções
+## GitHub Pages Deployment
 
-1. **Hero**: Conceito "CRM como Google Ads" com input de URL
-2. **Asset Simulator**: Cola URL → gera criativos (mock, precisa integrar API real)
-3. **How It Works**: 5 etapas para criar campanha
-4. **Value Props**: 6 diferenciais da plataforma
-5. **Comparison**: RevBridge vs CRMs tradicionais
-6. **Metrics**: Números de impacto
-7. **Testimonials**: Depoimentos (mock)
-8. **Final CTA**: Conversão
+### Repository
+https://github.com/revbridge-ai/rbd-site-ai
+
+### Live Site
+https://revbridge-ai.github.io/rbd-site-ai/
+
+### Configuration
+- Uses `basePath: "/rbd-site-ai"` in production
+- Static export via `output: "export"` in next.config.ts
+- Auto-deploy via GitHub Actions (`.github/workflows/deploy.yml`)
+
+### Asset Paths (IMPORTANT!)
+Always use `getAssetPath()` for images/videos to work on GitHub Pages:
+
+```tsx
+import { getAssetPath } from "@/lib/utils";
+
+// Images
+<Image src={getAssetPath("/logo.svg")} ... />
+
+// Videos
+<video src={getAssetPath("/videos/demo.mov")} ... />
+
+// In data arrays
+const steps = [
+  { image: getAssetPath("/images/step-1.png") },
+  ...
+];
+```
 
 ---
 
-## Próximos Passos
+## What Was Done (Nov 26, 2025)
 
-### Pendente:
-1. **Testar build** - Rodar `npm run build` e corrigir erros
-2. **Integrar API de criativos** - O Asset Simulator usa mock, precisa do endpoint real
-3. **Adicionar logo SVG** - Substituir o placeholder pelo logo real
-4. **Conteúdo real** - Substituir textos placeholder por conteúdo definitivo
-5. **Imagens** - Adicionar screenshots da plataforma
-6. **SEO** - Adicionar Open Graph images, favicon real
+### Completed
+- [x] Full website build with all pages
+- [x] Home page with 9 sections
+- [x] Platform, Pricing, About, Blog pages
+- [x] All UI components
+- [x] Mobile responsive design
+- [x] Translation to English
+- [x] GitHub Pages deployment
+- [x] Favicon with RevBridge logo
+- [x] Demo video integration
 
-### Comandos úteis:
+### Key Design Decisions
+- Buttons: `rounded-full` style
+- Section backgrounds: alternating gray/white
+- CTA text: "Get $300 free to start"
+- Footer tagline: "Handle it for you!"
+
+---
+
+## What's Next?
+
+Possible improvements:
+- [ ] Add real blog content/CMS integration
+- [ ] Connect CTA buttons to actual signup flow
+- [ ] Add contact form functionality
+- [ ] SEO optimization (meta tags per page)
+- [ ] Analytics integration (GA4, etc.)
+- [ ] Custom domain setup
+- [ ] Performance optimization
+- [ ] A/B testing setup
+- [ ] Integrate real Creative Generator API
+
+---
+
+## Session Log
+
+See `SESSION_LOG.md` for detailed work history from today's session.
+
+---
+
+## Useful Commands
+
 ```bash
-# Rodar em desenvolvimento
+# Development
 npm run dev
 
-# Build para produção
+# Build
 npm run build
 
-# Iniciar produção
-npm start
+# Preview build locally
+npx serve out
+
+# Deploy (automatic via GitHub Actions on push to main)
+git push origin main
 ```
 
----
+## GitHub Token Note
 
-## Plano Completo
-
-O plano detalhado está em:
-`/Users/julianoscapin/.claude/plans/gentle-hugging-sunrise.md`
-
----
-
-## Informações da API (necessário fornecer)
-
-O Asset Simulator precisa de um endpoint para gerar criativos.
-
-**Esperado:**
-- Endpoint: `POST /api/generate-creatives`
-- Body: `{ url: string }`
-- Response:
-```json
-{
-  "assets": [
-    {
-      "channel": "Email",
-      "subject": "Assunto do email",
-      "preview": "Texto do email..."
-    },
-    {
-      "channel": "Push",
-      "preview": "Texto do push..."
-    },
-    {
-      "channel": "WhatsApp",
-      "preview": "Texto do WhatsApp..."
-    }
-  ]
-}
-```
-
-Quando tiver o endpoint, editar `src/components/sections/home/AssetSimulator.tsx`.
+To push workflow files, the token needs `workflow` scope.
+Current user: `juliano-revbridge`

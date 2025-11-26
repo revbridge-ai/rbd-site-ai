@@ -38,21 +38,21 @@ export function GooeyHero() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600">
               RevBridge handles
             </p>
 
             {/* Morphing word container */}
-            <div className="relative h-[100px] md:h-[140px] lg:h-[180px] -my-5">
+            <div className="relative h-[60px] sm:h-[80px] md:h-[120px] lg:h-[160px] -my-2 sm:-my-4 md:-my-5">
               <GooeyText
                 texts={morphingWords}
                 morphTime={1}
                 cooldownTime={2.5}
-                textClassName="font-bold text-primary-500 text-7xl md:text-8xl lg:text-9xl"
+                textClassName="font-bold text-primary-500 text-4xl sm:text-5xl md:text-7xl lg:text-8xl"
               />
             </div>
 
-            <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-600">
               for you!
             </p>
           </motion.div>
