@@ -1,11 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { WaitlistButton } from "@/components/ui/WaitlistButton";
+import { BlogCTA } from "@/components/sections/blog/BlogCTA";
 import { Calendar, Clock, ArrowLeft, Share2, Linkedin, Twitter } from "lucide-react";
 
 // This would typically come from a CMS or MDX files
@@ -402,20 +401,7 @@ export default async function BlogPostPage({
       </Section>
 
       {/* CTA */}
-      <Section background="gradient">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Ready to Try It?
-            </h2>
-            <p className="text-white/80 mb-6">
-              Be the first to experience the future of CRM.
-              Join our waitlist for exclusive early access.
-            </p>
-            <WaitlistButton className="bg-white text-primary-600 hover:bg-gray-100" />
-          </div>
-        </Container>
-      </Section>
+      <BlogCTA />
     </>
   );
 }
