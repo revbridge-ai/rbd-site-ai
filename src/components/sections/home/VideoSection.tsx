@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { HeroVideoDialog } from "@/components/ui/HeroVideoDialog";
@@ -8,21 +9,34 @@ import { getAssetPath } from "@/lib/utils";
 import { Play } from "lucide-react";
 
 export function VideoSection() {
+  const [autoPlay, setAutoPlay] = useState(false);
+
+  useEffect(() => {
+    // Listen for custom event to open video
+    const handleOpenVideo = () => {
+      setAutoPlay(true);
+    };
+
+    window.addEventListener("openDemoVideo", handleOpenVideo);
+    return () => window.removeEventListener("openDemoVideo", handleOpenVideo);
+  }, []);
+
   return (
-    <BackgroundGradientAnimation
-      gradientBackgroundStart="rgb(30, 0, 0)"
-      gradientBackgroundEnd="rgb(60, 0, 20)"
-      firstColor="232, 17, 17"
-      secondColor="220, 38, 38"
-      thirdColor="255, 100, 100"
-      fourthColor="180, 0, 0"
-      fifthColor="255, 150, 100"
-      pointerColor="232, 17, 17"
-      size="100%"
-      blendingValue="hard-light"
-      interactive={true}
-      containerClassName="py-24 md:py-32"
-    >
+    <div id="demo-video">
+      <BackgroundGradientAnimation
+        gradientBackgroundStart="rgb(30, 0, 0)"
+        gradientBackgroundEnd="rgb(60, 0, 20)"
+        firstColor="232, 17, 17"
+        secondColor="220, 38, 38"
+        thirdColor="255, 100, 100"
+        fourthColor="180, 0, 0"
+        fifthColor="255, 150, 100"
+        pointerColor="232, 17, 17"
+        size="100%"
+        blendingValue="hard-light"
+        interactive={true}
+        containerClassName="py-24 md:py-32"
+      >
       <Container>
         <div className="text-center mb-8 md:mb-12">
           <Badge
@@ -48,9 +62,12 @@ export function VideoSection() {
             thumbnailSrc={getAssetPath("/images/video-thumb.png")}
             thumbnailAlt="Demo: How to create a RevBridge campaign"
             isLocalVideo
+            autoOpen={autoPlay}
+            onOpenChange={() => setAutoPlay(false)}
           />
         </div>
       </Container>
-    </BackgroundGradientAnimation>
+      </BackgroundGradientAnimation>
+    </div>
   );
 }

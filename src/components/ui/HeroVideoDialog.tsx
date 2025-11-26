@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
 import { Play, XIcon } from "lucide-react"
@@ -24,6 +24,8 @@ interface HeroVideoProps {
   thumbnailAlt?: string
   className?: string
   isLocalVideo?: boolean
+  autoOpen?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 const animationVariants = {
@@ -76,9 +78,18 @@ export function HeroVideoDialog({
   thumbnailAlt = "Video thumbnail",
   className,
   isLocalVideo = false,
+  autoOpen = false,
+  onOpenChange,
 }: HeroVideoProps) {
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const selectedAnimation = animationVariants[animationStyle]
+
+  useEffect(() => {
+    if (autoOpen) {
+      setIsVideoOpen(true)
+      onOpenChange?.(false) // Reset the autoOpen state
+    }
+  }, [autoOpen, onOpenChange])
 
   return (
     <div className={cn("relative", className)}>

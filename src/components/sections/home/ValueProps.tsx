@@ -68,7 +68,7 @@ const item = {
 
 export function ValueProps() {
   return (
-    <Section background="gray">
+    <Section background="gray" id="features">
       <Container>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">

@@ -55,7 +55,7 @@ const features = [
 
 export function Comparison() {
   return (
-    <Section background="white">
+    <Section background="white" id="comparison">
       <Container>
         <div className="text-center mb-12">
           <Badge variant="primary" className="mb-4">

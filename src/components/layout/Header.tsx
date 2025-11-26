@@ -9,11 +9,19 @@ import { MenuToggle } from "@/components/ui/MenuToggle";
 import { getAssetPath } from "@/lib/utils";
 
 const links = [
-  { label: "Platform", href: "/plataforma" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/sobre" },
-  { label: "Blog", href: "/blog" },
+  { label: "How it Works", href: "#how-it-works" },
+  { label: "Features", href: "#features" },
+  { label: "Comparison", href: "#comparison" },
+  { label: "Results", href: "#results" },
 ];
+
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  e.preventDefault();
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export function Header() {
   const [open, setOpen] = React.useState(false);
@@ -36,13 +44,14 @@ export function Header() {
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 lg:flex">
           {links.map((link) => (
-            <Link
+            <a
               key={link.label}
               href={link.href}
-              className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+              onClick={(e) => scrollToSection(e, link.href)}
+              className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
           <div className="ml-4 flex items-center gap-2">
             <Button variant="outline" size="sm">
@@ -87,14 +96,17 @@ export function Header() {
             {/* Links */}
             <div className="grid gap-y-1 overflow-y-auto px-4 pt-4 pb-5">
               {links.map((link) => (
-                <Link
+                <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center px-3 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    scrollToSection(e, link.href);
+                    setOpen(false);
+                  }}
+                  className="flex items-center px-3 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
             </div>
 

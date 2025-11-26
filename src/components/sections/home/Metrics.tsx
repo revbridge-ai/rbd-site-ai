@@ -44,7 +44,7 @@ const item = {
 
 export function Metrics() {
   return (
-    <Section background="dark">
+    <Section background="dark" id="results">
       <Container>
         <motion.div
           variants={container}

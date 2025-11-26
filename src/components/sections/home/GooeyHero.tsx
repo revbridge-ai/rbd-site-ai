@@ -78,7 +78,19 @@ export function GooeyHero() {
               Get $300 free to start
               <ArrowRight size={18} className="ml-2" />
             </Button>
-            <Button size="lg" variant="outline">
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => {
+                const videoSection = document.getElementById("demo-video");
+                if (videoSection) {
+                  videoSection.scrollIntoView({ behavior: "smooth" });
+                  setTimeout(() => {
+                    window.dispatchEvent(new CustomEvent("openDemoVideo"));
+                  }, 800);
+                }
+              }}
+            >
               Watch Demo
             </Button>
           </motion.div>
