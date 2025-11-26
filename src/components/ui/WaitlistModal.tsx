@@ -110,10 +110,10 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <h2 className="text-2xl font-bold mb-2">
-                  Be the First to Use RevBridge in 2025
+                  Be the First to Use RevBridge in 2026
                 </h2>
                 <p className="text-white/80 text-sm">
-                  Join our exclusive early access list and get $500 in free
+                  Join our exclusive early access list and get $300 in free
                   credits when we launch.
                 </p>
               </div>

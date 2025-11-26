@@ -105,7 +105,7 @@ export function GooeyHero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-sm text-gray-500 mt-6"
           >
-            Launching 2025 • $500 free credits for early adopters
+            Launching 2026 • $300 free credits for early adopters
           </motion.p>
         </div>
       </Container>
