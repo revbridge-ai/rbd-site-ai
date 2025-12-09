@@ -73,7 +73,6 @@ export function Header() {
             <MenuToggle
               strokeWidth={2.5}
               open={open}
-              onOpenChange={setOpen}
               className="w-5 h-5"
             />
           </Button>

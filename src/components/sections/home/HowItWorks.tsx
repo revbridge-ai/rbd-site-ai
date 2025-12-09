@@ -3,7 +3,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Badge } from "@/components/ui/Badge";
-import { FeaturesCarousel } from "@/components/ui/FeaturesCarousel";
+import { ScrollFeatures } from "@/components/ui/ScrollFeatures";
 import { getAssetPath } from "@/lib/utils";
 import {
   FileText,
@@ -58,7 +58,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <Section background="gray" id="how-it-works">
+    <Section background="gray" id="how-it-works" className="!overflow-visible">
       <Container>
         <div className="text-center mb-16">
           <Badge variant="primary" className="mb-4">
@@ -73,7 +73,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <FeaturesCarousel features={steps} autoPlayInterval={8000} />
+        <ScrollFeatures features={steps} />
       </Container>
     </Section>
   );
