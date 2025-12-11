@@ -61,7 +61,7 @@ export function FinalCTA() {
           </div>
 
           <p className="text-white/60 text-sm mt-6">
-            $300 in free credits for early adopters
+            $1,000 in free credits for early adopters
           </p>
         </motion.div>
       </Container>
