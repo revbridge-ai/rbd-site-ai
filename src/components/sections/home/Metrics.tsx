@@ -6,24 +6,24 @@ import { motion } from "framer-motion";
 
 const metrics = [
   {
-    value: "$10M+",
-    label: "Performance delivered",
-    description: "to our clients",
+    value: "39%",
+    label: "Open Rate",
+    description: "vs 15% industry benchmark",
+  },
+  {
+    value: "9%",
+    label: "Click-to-Open Rate",
+    description: "vs 3% industry benchmark",
+  },
+  {
+    value: "2.6x",
+    label: "Higher engagement",
+    description: "compared to market average",
   },
   {
     value: "3x",
-    label: "More conversions",
-    description: "compared to traditional CRMs",
-  },
-  {
-    value: "5 min",
-    label: "To first campaign",
-    description: "from zero to live",
-  },
-  {
-    value: "0",
-    label: "Setup fees",
-    description: "start with no upfront investment",
+    label: "More clicks",
+    description: "than traditional campaigns",
   },
 ];
 
