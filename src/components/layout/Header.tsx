@@ -56,9 +56,14 @@ export function Header() {
             </a>
           ))}
           <div className="ml-4">
-            <Button size="sm" onClick={openWaitlist}>
-              Join Waitlist
-            </Button>
+            <a
+              href="https://calendly.com/juliano-revbridge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer bg-primary-500 text-white hover:bg-primary-600 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 px-4 py-2 text-sm"
+            >
+              Book a Demo
+            </a>
           </div>
         </div>
 
@@ -111,15 +116,14 @@ export function Header() {
             </div>
 
             <SheetFooter>
-              <Button
-                className="w-full"
-                onClick={() => {
-                  setOpen(false);
-                  openWaitlist();
-                }}
+              <a
+                href="https://calendly.com/juliano-revbridge"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer bg-primary-500 text-white hover:bg-primary-600 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 px-6 py-3 text-base"
               >
-                Join Waitlist
-              </Button>
+                Book a Demo
+              </a>
             </SheetFooter>
           </SheetContent>
         </Sheet>

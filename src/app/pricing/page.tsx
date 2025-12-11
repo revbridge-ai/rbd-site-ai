@@ -6,7 +6,6 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { WaitlistButton } from "@/components/ui/WaitlistButton";
 import { useWaitlist } from "@/components/ui/WaitlistModal";
 import {
   Check,
@@ -56,6 +55,7 @@ export default function PricingPage() {
   const [budget, setBudget] = useState(5000);
   const [cpa, setCpa] = useState(50);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const { openWaitlist } = useWaitlist();
 
   const estimatedConversions = Math.floor(budget / cpa);
 
@@ -389,7 +389,23 @@ export default function PricingPage() {
               Join our waitlist for exclusive early access.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <WaitlistButton className="bg-white text-primary-600 hover:bg-gray-100" />
+              <a
+                href="https://calendly.com/juliano-revbridge"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 text-lg"
+              >
+                Book a Demo
+                <ArrowRight size={18} className="ml-2" />
+              </a>
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white/10"
+                onClick={openWaitlist}
+              >
+                Join Waitlist
+              </Button>
             </div>
           </div>
         </Container>

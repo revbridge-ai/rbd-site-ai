@@ -41,21 +41,22 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-primary-600 hover:bg-gray-100 shadow-xl"
-              onClick={openWaitlist}
+            <a
+              href="https://calendly.com/juliano-revbridge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer bg-white text-primary-600 hover:bg-gray-100 shadow-xl px-8 py-4 text-lg"
             >
-              Join the Waitlist
+              Book a Demo
               <ArrowRight size={18} className="ml-2" />
-            </Button>
+            </a>
             <Button
               variant="outline"
               size="lg"
               className="border-white text-white hover:bg-white/10"
               onClick={openWaitlist}
             >
-              Learn More
+              Join Waitlist
             </Button>
           </div>
 

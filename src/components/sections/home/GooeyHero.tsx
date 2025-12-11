@@ -77,24 +77,21 @@ export function GooeyHero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" onClick={openWaitlist}>
-              Join the Waitlist
+            <a
+              href="https://calendly.com/juliano-revbridge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 cursor-pointer bg-primary-500 text-white hover:bg-primary-600 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 px-8 py-4 text-lg"
+            >
+              Book a Demo
               <ArrowRight size={18} className="ml-2" />
-            </Button>
+            </a>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => {
-                const videoSection = document.getElementById("demo-video");
-                if (videoSection) {
-                  videoSection.scrollIntoView({ behavior: "smooth" });
-                  setTimeout(() => {
-                    window.dispatchEvent(new CustomEvent("openDemoVideo"));
-                  }, 800);
-                }
-              }}
+              onClick={openWaitlist}
             >
-              Watch Demo
+              Join Waitlist
             </Button>
           </motion.div>
 
